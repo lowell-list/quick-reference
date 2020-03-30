@@ -1,0 +1,5 @@
+[[:digit:]]+\.[[:blank:]]*              - matches 1 to n digits followed by a '.' followed by 0 to n blank chars: i.e. '1.' '125. '
+([[:digit:]]+\.[[:blank:]]*)            - same as above, but () lets you capture and refer to the matched string in replacement: replace with %1...
+\n[ABCD]\.[[:blank:]]*                  - matches newline char, followed by A,B,C, or D once, followed by a '.' followed by 0 to n blank chars: i.e. 'A.' 'B.  '
+scaleDir{1}.*(\.(gif|jpe?g|png|bmp))$   - contains 'scaleDir' once, 0-n of any character, ends with .gif, .jpg, .jpeg, .png, or .bmp
+[_]+                                    - matches 1 to n '_' characters

@@ -1,0 +1,6 @@
+debugging
+----------------------------------------
+  <shift> <command> Y - show/hide debugger window
+  F6 - Step Over
+  F7 - Step Into
+  po <objectName> - print object

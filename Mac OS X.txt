@@ -1,0 +1,38 @@
+terminal
+----------------------------------------
+  open .                        - open current directory in Finder window
+  open filename -a UltraEdit    - opens a file for editing in UltraEdit
+  
+terminal path
+----------------------------------------
+view path
+  echo $PATH
+
+edit .profile in home directory, add
+  PATH=~/this/is/my/target/directory:$PATH
+  easy edit in TextEdit: open .profile
+
+system-wide PATH settings stored in /etc/paths:
+  sudo nano /etc/paths
+
+simple screenshots
+----------------------------------------
+Command-Shift-3: Take a screenshot of the screen, and save it as a file on the desktop
+Command-Shift-4, then select an area: Take a screenshot of an area and save it as a file on the desktop
+Command-Shift-4, then space, then click a window: Take a screenshot of a window and save it as a file on the desktop
+
+Java JDK selection
+----------------------------------------
+good answer: http://stackoverflow.com/questions/13594864/how-to-revert-to-java-1-6-on-mac-os-x-10-7-5
+
+/usr/libexec/java_home                                      reports Java home directory
+/usr/libexec/java_home -V                                   reports list of installed JDKs
+export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`         set Java home directory to the best available 1.6 JDK on your system
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_121`      set Java home directory to explicit JDK on your system
+
+Bring Up Task Manager
+----------------------------------------
+press cmd + alt + esc keys
+
+Finder: show hidden files!
+Shift + Command + .

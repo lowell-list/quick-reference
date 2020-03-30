@@ -1,0 +1,118 @@
+General
+  ls -la                             list all files (including hidden ones) in a directory
+  rm -r directory                    remove a directory and all files in it
+  find / -name "myfile" -print       recursively find a file, starting at root
+  find . -name "foo*"                recursively find a file, starting in the current directory
+  find . -name ".gitignore" -delete  recursively find and delete all ".gitignore" files
+  pwd -P                             prints working directory, ignoring symbolic links
+
+Disk Usage / Free Space
+  df                                 displays the information of device name, total blocks, total disk space, used disk space, available disk space and mount points on a file system.
+  du -sh /dir                        total disk usage for given directory, human readable
+
+Create Visual Dir Structure:
+  ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'
+
+Symbolic Links
+  rm /path/to/your/symlink           remove symbolic link
+  ln -s /Volumes/Classic/ Classic    create symbolic link
+
+Set environment variables
+  export VAR=value
+
+Set process to lower priority
+  renice 20 2933                     set process 2933 (PID) to lowest priority (20)
+
+Add sudo user
+  sudo adduser --home /home/llist --shell /bin/bash --ingroup admin llist
+
+SSH
+  ssh-keygen -t rsa                  generate public/private key pair
+  ssh-copy-id user@123.45.67.89      send public key to remote server
+  ssh-add -l                         list SSH keys in ssh-agent
+  ssh-add ~/.ssh/keys/github_rsa     add SSH key to the ssh-agent
+
+Secure Copy
+  scp your_username@remotehost.edu:foobar.txt /some/local/directory
+  scp fr:~/git/mcfinn/somefile.txt ./
+
+Create tar file from directory
+  tar -zcvf archive-name.tar.gz directory-name
+    -z : Compress archive using gzip program
+    -c : Create archive
+    -v : Verbose (display progress while creating archive)
+    -f : Archive File name
+
+Count lines of code in dir and subdirs:
+  find . "(" -name "*.m" -or -name "*.mm" -or -name "*.h" -or -name "*.cpp" ")" -print0 | xargs -0 wc -l
+
+In the current directory, list all files (recursive) and sort by size
+  find . -type f -exec stat -f '%z %N' '{}' + | sort -n
+
+Recursively search current directory for files containing a string
+  grep -r "word" .
+
+Show differences between files or directory contents:
+  diff file-1 file-2
+  diff -rq folder-1 folder-2
+
+Rename multiple files (can’t believe it’s not easier than this)
+In this example: rename ‘trait*.png’ to ‘icon*.png’
+  cd /path/to/folder
+  for FNM in trait*.png; do mv "$FNM" "${FNM//trait/icon}"; done
+To check before execution to make sure the output is correct, you can pipe it to a text file before terminal actually executes:
+  for FNM in trait*.png; do echo mv \"$FNM\" \"${FNM//trait/icon}\"; done > test.txt
+
+UWSGI
+Check if UWSGI is running:
+  ps -Al | grep uwsgi
+
+nginx
+  sudo service nginx stop
+  sudo service nginx start
+  sudo fuser -k 80/tcp        # kill stubborn nginx!
+  ps -Al | grep nginx         # view nginx processes
+
+Bash Scripting
+---------------------------------
+create a file myScript.sh
+give it executable permissions: chmod +x myScript.sh
+first line of file: #!/bin/bash
+important: line feeds in the file must be UNIX style, not DOS!
+to run: ./myScript.sh
+
+Image Conversion with ImageMagick
+---------------------------------
+
+create equally sized tile images from one large image, with names tile_000.png, tile_001.png, etc.
+  convert bigWorld_4096x2304.png -crop 256x256 tile_%03d.png
+
+join all tiles back into one file, with 16 columns
+  montage tile_*.png -mode concatenate -tile 16x bigFile.jpg
+
+crop 2048x2048 image down to 2048x1536
+  convert 1_2048x2048.jpg -crop 2048x1536+0+256 1_2048x1536.png
+
+join two images into one, side by side
+  convert playfield-1.3.png edgeOfAmericaWithHoles_4096x2304.png +append hugePlayfield2.png
+
+NFS, between VirtualBox guest and host
+--------------------------------------
+
+Linux client:
+  sudo mount 10.0.0.233:/home/lowell/Development /local/ubuntu-server
+  sudo umount /local/ubuntu-server
+
+inotify watches
+  echo fs.inotify.max_user_watches=500000 | sudo tee -a /etc/sysctl.conf
+
+Open Android emulator without Android Studio
+--------------------------------------------
+~/Library/Android/sdk/tools/emulator -list-avds
+~/Library/Android/sdk/tools/emulator -avd <device_name>
+
+Type text into Android emulator
+-------------------------------
+adb shell input text 'my string here. With some characters escaped like \$ that'
+
+

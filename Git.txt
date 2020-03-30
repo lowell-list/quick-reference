@@ -1,0 +1,26 @@
+git status                      display status
+git --version                   display git version
+git log
+git reflog
+git pull
+
+# reset remote master to match local master
+git push -f origin master
+
+# delete local git tags
+# NOTE: smart to do a dry run without | xargs git tag -d
+git tag -l | awk '/^(v0\.3\.1[2-9].*)$/ {print $1}' | xargs git tag -d          # delete local tags from v0.3.12* to v0.3.19*
+git tag -l | awk '/^(v0\.[4-9].*)$/ {print $1}' | xargs git tag -d              # delete local tags from v0.4* to v0.9*
+git tag -l | awk '/^(v1.*)$/ {print $1}' | xargs git tag -d                     # delete local tags starting with "v1"
+git tag -l | awk '/^(preview.*)$/ {print $1}' | xargs git tag -d                # delete local tags starting with "preview"
+
+# delete ALL remote tags ending with a number
+# NOTE: smart to do a dry run without | xargs git push origin
+git ls-remote --tags origin | awk '/^(.*)(\s+)(.*[0-9]+)$/ {print ":" $2}' | xargs git push origin
+
+# delete ALL remote tags
+git tag -l | xargs -n 1 git push --delete origin
+
+# add submodule
+git submodule add <repository> <path>
+  i.e. git submodule add https://github.com/FRProductions/InteractiveTVCommon.git subModules/InteractiveTVCommon

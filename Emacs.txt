@@ -1,0 +1,17 @@
+C == <Control> == hold control key
+M == <Meta> == hold alt key, or press and release esc key
+
+Exit
+  C-x C-c
+
+Save
+  C-x C-s       save current buffer to its file
+
+Undo
+  C-_
+
+Copy/Paste
+  C-space       set mark (move cursor, and selected region is between mark and cursor)
+  C-w           cut (kill)
+  M-w           copy
+  C-y           paste (yank)

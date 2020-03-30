@@ -1,0 +1,65 @@
+Taking Screenshots in Mac OS X
+There are several keyboard combinations that can be used to take screenshots in Mac OS X. The SystemUIServer process handles these commands.
+
+Contents [hide]
+1 Shortcuts
+2 Formats
+3 Grab and Preview
+4 From the Terminal
+5 Third Party Applications
+6 Links
+[edit]
+Shortcuts
+
+Command-Shift-3: Take a screenshot of the screen, and save it as a file on the desktop
+Command-Shift-4, then select an area: Take a screenshot of an area and save it as a file on the desktop
+Command-Shift-4, then space, then click a window: Take a screenshot of a window and save it as a file on the desktop
+Command-Control-Shift-3: Take a screenshot of the screen, and save it to the clipboard
+Command-Control-Shift-4, then select an area: Take a screenshot of an area and save it to the clipboard
+Command-Control-Shift-4, then space, then click a window: Take a screenshot of a window and save it to the clipboard (**** OPTION CLICK FOR NO DROP SHADOW ****)
+In Leopard and later, the following keys can be held down while selecting an area (via Command-Shift-4 or Command-Control-Shift-4):
+
+Space, to lock the size of the selected region and instead move it when the mouse moves
+Shift, to resize only one edge of the selected region
+Option, to resize the selected region with its center as the anchor point
+[edit]
+Formats
+
+Different versions of Mac OS X have different formats for screenshots.
+
+Mac OS X 10.2 (Jaguar): jpg
+Mac OS X 10.3 (Panther): pdf
+Mac OS X 10.4 (Tiger) and later: png
+In Mac OS X 10.4 and later, the default screenshot format can be changed, by opening Terminal (located at /Applications/Utilities/Terminal) and typing in:
+
+defaults write com.apple.screencapture type image_format
+killall SystemUIServer
+Where image_format is one of jpg, tiff, pdf, png, bmp or pict (among others). If you omit the second line, you will need to log out and in again for the change to take effect.
+
+[edit]
+Grab and Preview
+
+Instead of using the keyboard shortcuts above, screenshots can be taken by using the Grab application included with Mac OS X. It is located at /Applications/Utilities/Grab.
+
+In Mac OS X 10.4, the Preview application can also be used to take screenshots, by using the Grab submenu in the File menu.
+
+[edit]
+From the Terminal
+
+The screencapture command in the Terminal can also be used to capture screenshots, and is useful for scripts. Here is an example.
+
+screencapture -iW ~/Desktop/screen.jpg
+[edit]
+Third Party Applications
+
+There are a huge number of third party applications that can be used to take screenshots. Several popular ones are listed below:
+
+Jing Great for screen shots, video recording and has an extremely useful online sharing feature.
+Snapz Pro X is very popular and can even record movies. It has a large range of features, and is shareware.
+SnapNDrag is also popular and offers several features in addition to those offered by the default screen capture tools. With SnapNDrag, users take a screenshot, then drag it to their destination. SnapNDrag is freeware, but also has a pro version.
+Screen Mimic is shareware that can be used to record animations of your desktop to .swf files for tutorials, software demonstrations, etc.
+[edit]
+Links
+
+10.4: Change the default screenshot format
+Categories: Guides | Mac OS X
