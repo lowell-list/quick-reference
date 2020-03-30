@@ -116,3 +116,9 @@ Type text into Android emulator
 adb shell input text 'my string here. With some characters escaped like \$ that'
 
 
+NVM
+---
+nvm ls                       list node versions
+nvm use v8.12.0              use specific node version
+nvm use node                 use latest installed version
+nvm ls-remote                list all available remote node versions
